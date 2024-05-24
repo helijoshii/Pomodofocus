@@ -3,3 +3,17 @@
   text-align: center;
 }
 
+/* styles.css */
+@font-face {
+  font-family: 'ArialRounded';
+  src: url('ARLRDBD.ttf') format('truetype'),
+       url('ARLRDBD.ttf') format('woff'),
+       url('ARLRDBD.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font globally */
+body {
+  font-family: 'ArialRounded', sans-serif;
+}
