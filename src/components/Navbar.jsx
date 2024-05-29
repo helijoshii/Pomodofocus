@@ -1,11 +1,19 @@
 import React from "react";
 import { Settings, Profile, Report, More } from "../icons";
 import { useNavigate } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const setting = () => {
-    navigate("/setting");
+  const SettingsDialog = () => {
+    navigate("/SettingsDialog");
   };
 
   return (
@@ -23,7 +31,7 @@ const Navbar = () => {
             </button>
             <button
               className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm rounded flex"
-              onClick={setting}
+              onClick={SettingsDialog}
             >
               <Settings className="mt-1 mr-1 " /> <span> Settings </span>{" "}
             </button>

@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
-import Setting from "./components/Setting";
+import SettingsDialog from "./components/SettingsDialog";
+import girls from "./pages/girls";
+import favgirls from "./pages/favgirls";
+import Time from "./pages/Time";
 
 export const heli = createBrowserRouter([
   {
@@ -8,8 +11,19 @@ export const heli = createBrowserRouter([
     Component: Home,
   },
   {
-    path: "/setting",
-    Component: Setting ,
+    path: "/SettingsDialog",
+    Component: SettingsDialog,
   },
-
+  {
+    path: "/girls",
+    Component: girls,
+  },
+  {
+    path: "/favgirls",
+    Component: favgirls,
+  },
+  {
+    path: "/time",
+    Component: Time,
+  },
 ]);
