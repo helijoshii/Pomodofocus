@@ -13,15 +13,7 @@ const girls = () => {
       }, 1000);
   return (
     <>
-    <div className='text-red-500'>Other girls</div>
-    <p>Riya</p>
-    <p>Roshan</p>
-    <p>Rashi</p>
-    <p>Nenuji</p>
-    <p>Rennee</p>
-    <p>Muslim</p>
-    <p>Pari</p>
-    <p>Aashifa</p>
+    
     </>
   )
 }

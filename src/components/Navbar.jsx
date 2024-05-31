@@ -1,20 +1,11 @@
 import React from "react";
 import { Settings, Profile, Report, More } from "../icons";
-import { useNavigate } from "react-router-dom";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { useState } from "react";
+import SettingsDialog from "./SettingsDialog";
+import SettingsModal from "./SettingsModal";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const SettingsDialog = () => {
-    navigate("/SettingsDialog");
-  };
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
@@ -26,17 +17,18 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-3">
             <button className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm rounded flex">
-              <Report className="mt-1 mr-1 " />{" "}
-              <span className="hidden sm:inline"> Report </span>{" "}
+              <Report className="mt-1 mr-1 " />
+              <span className="hidden sm:inline"> Report </span>
             </button>
             <button
               className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm rounded flex"
-              onClick={SettingsDialog}
+              onClick={() => setOpen(true)}
             >
-              <Settings className="mt-1 mr-1 " /> <span> Settings </span>{" "}
+              <Settings className="mt-1 mr-1" /> <span> Settings </span>
             </button>
+
             <button className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm  rounded flex">
-              <Profile className="mt-1 mr-2" /> <span> Sign in </span>{" "}
+              <Profile className="mt-1 mr-2" /> <span> Sign in </span>
             </button>
             <button className="bg-white bg-opacity-10 text-white px-1 py-2 text-sm rounded">
               <More className="mt-1 " />
@@ -44,6 +36,7 @@ const Navbar = () => {
           </div>
         </div>
       </navbar>
+      {open && <SettingsDialog close={() => setOpen(false)} />}
     </div>
   );
 };
