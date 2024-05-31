@@ -2,16 +2,26 @@ import React, { useState } from "react";
 import { useTimer } from "react-timer-hook";
 
 const Timer = () => {
+  const initialTime = 1500; // 25 minutes in seconds
   const [expiryTimestamp, setExpiryTimestamp] = useState(new Date());
-  expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + 1500); // Set initial timer duration (25 minutes)
+  expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + initialTime);
 
-  const { seconds, minutes, isRunning, start, pause, resume } = useTimer({
+  const {
+    seconds,
+    minutes,
+    isRunning,
+    start,
+    pause,
+    resume,
+    restart,
+  } = useTimer({
     expiryTimestamp,
-    autoStart: false, // Ensure the timer does not start automatically
+    autoStart: false,
     onExpire: () => console.warn("Timer expired"),
   });
 
-  const [isPaused, setIsPaused] = useState(true); // Initialize as paused
+  const [isPaused, setIsPaused] = useState(true);
+  const [activeTimer, setActiveTimer] = useState("Pomodoro");
 
   const handleButtonClick = () => {
     if (!isRunning && isPaused) {
@@ -26,18 +36,46 @@ const Timer = () => {
     }
   };
 
+  const setTimer = (seconds, timerType) => {
+    const time = new Date();
+    time.setSeconds(time.getSeconds() + seconds);
+    restart(time, false); // Restart the timer with the new expiry timestamp
+    setActiveTimer(timerType); // Set the active timer
+  };
+
   return (
     <div className="flex items-center justify-center overflow-hidden">
       <div className="bg-white text-white bg-opacity-10 h-80 w-[480px] mt-10 rounded-md">
         <div className="mx-8">
           <div className="flex flex-row gap-4 mt-5 justify-around text-base font-semibold ">
-            <p className="hover:bg-[#548059] active:bg-[#548059] px-3 py-1 rounded-md cursor-pointer">
+            <p
+              className={`px-3 py-1 rounded-md cursor-pointer ${
+                activeTimer === "Pomodoro"
+                  ? "bg-[#548059]"
+                  : "hover:bg-[#548059]"
+              }`}
+              onClick={() => setTimer(1500, "Pomodoro")} // 25 minutes for Pomodoro
+            >
               Pomodoro
             </p>
-            <p className="hover:bg-[#548059] px-3 py-1 rounded-md cursor-pointer">
+            <p
+              className={`px-3 py-1 rounded-md cursor-pointer ${
+                activeTimer === "Short Break"
+                  ? "bg-[#548059]"
+                  : "hover:bg-[#548059]"
+              }`}
+              onClick={() => setTimer(300, "Short Break")} // 5 minutes for Short Break
+            >
               Short Break
             </p>
-            <p className="hover:bg-[#548059] px-3 py-1 rounded-md cursor-pointer">
+            <p
+              className={`px-3 py-1 rounded-md cursor-pointer ${
+                activeTimer === "Long Break"
+                  ? "bg-[#548059]"
+                  : "hover:bg-[#548059]"
+              }`}
+              onClick={() => setTimer(900, "Long Break")} // 15 minutes for Long Break
+            >
               Long Break
             </p>
           </div>

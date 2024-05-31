@@ -2,14 +2,13 @@ import React from "react";
 import { Settings, Profile, Report, More } from "../icons";
 import { useState } from "react";
 import SettingsDialog from "./SettingsDialog";
-import SettingsModal from "./SettingsModal";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <div>
-      <navbar>
+      <nav>
         <div className="flex justify-between items-center p-4">
           <div className="flex items-center gap-4">
             {/* Add the Pomodofocus logo */}
@@ -35,7 +34,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </navbar>
+      </nav>
       {open && <SettingsDialog close={() => setOpen(false)} />}
     </div>
   );

@@ -1,9 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import SettingsDialog from "./components/SettingsDialog";
-import girls from "./pages/girls";
-import favgirls from "./pages/favgirls";
-import Time from "./pages/Time";
+import color from "./pages/color";
+import favcolor from "./pages/favcolor";
 
 export const heli = createBrowserRouter([
   {
@@ -15,15 +14,11 @@ export const heli = createBrowserRouter([
     Component: SettingsDialog,
   },
   {
-    path: "/girls",
-    Component: girls,
+    path: "/color",
+    Component: color,
   },
   {
-    path: "/favgirls",
-    Component: favgirls,
-  },
-  {
-    path: "/time",
-    Component: Time,
+    path: "/favcolor",
+    Component: favcolor,
   },
 ]);
