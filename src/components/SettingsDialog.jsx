@@ -129,4 +129,4 @@ const SettingsDialog = ({ close }) => {
   );
 };
 
-export default SettingsDialog;
+export default SettingsDialog;   

@@ -37,6 +37,9 @@ const Signin = () => {
       setErrors(validationErrors);
     }
   };
+  const handleCreateAccountClick = () => {
+    navigate("/signup");
+  };
 
   return (
     <div className="flex items-center flex-col min-h-screen bg-[#518a58]">
@@ -94,7 +97,7 @@ const Signin = () => {
         </button>
         <p className="font-thin text-sm mt-5 text-slate-400">
           Don't have an account?{" "}
-          <a href="" className="underline">
+          <a href="" onClick={handleCreateAccountClick} className="underline">
 
             Create Account
           </a>

@@ -67,6 +67,10 @@ const Signup = () => {
     }
   };
 
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="flex items-center flex-col min-h-screen bg-[#518a58]">
       <div className="my-7">
@@ -145,7 +149,7 @@ const Signup = () => {
         </button>
         <p className="font-thin text-sm mt-5 text-slate-400">
           Already have an account?{" "}
-          <a href="" className="underline">
+          <a href="" onClick={handleLoginClick} className="underline">
             Log in
           </a>
         </p>
