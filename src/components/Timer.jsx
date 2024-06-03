@@ -29,6 +29,7 @@ const Timer = () => {
   const [activeTimer, setActiveTimer] = useState("Pomodoro");
 
   const handleButtonClick = () => {
+    ding();
     if (!isRunning && isPaused) {
       start();
       setIsPaused(false);
