@@ -3,6 +3,9 @@ import Home from "./pages/Home";
 import SettingsDialog from "./components/SettingsDialog";
 import color from "./pages/color";
 import favcolor from "./pages/favcolor";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
+import Account from "./pages/Account";
 
 export const heli = createBrowserRouter([
   {
@@ -21,4 +24,16 @@ export const heli = createBrowserRouter([
     path: "/favcolor",
     Component: favcolor,
   },
+  {
+    path: "/signup",
+    Component : Signup
+  },
+  {
+    path: "/signin",
+    Component : Signin
+  },
+  {
+    path: "/account",
+    Component: Account
+  }
 ]);
