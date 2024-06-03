@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useTimer } from "react-timer-hook";
+import { ThemeContext } from "../ThemeContext";
 
 const Timer = () => {
   const initialTime = 1500; // 25 minutes in seconds
   const [expiryTimestamp, setExpiryTimestamp] = useState(new Date());
+  const { theme } = useContext(ThemeContext);
   expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + initialTime);
 
   const { seconds, minutes, isRunning, start, pause, resume, restart } =
@@ -87,7 +89,8 @@ const Timer = () => {
 
           <div>
             <button
-              className="bg-white text-[#518a58] w-48 h-14 text-2xl px-3 py-2 font-semibold rounded-md transition-all duration-200 ease-in-out transform active:scale-95 z-0"
+              className="bg-white w-48 h-14 text-2xl px-3 py-2 font-semibold rounded-md transition-all duration-200 ease-in-out transform active:scale-95 z-0"
+              style={{ color: theme }}
               onClick={handleButtonClick}
             >
               {isRunning && !isPaused ? "Pause" : "Start"}

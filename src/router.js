@@ -24,7 +24,7 @@ export const heli = createBrowserRouter([
     Component : Signup
   },
   {
-    path: "/signin",
+    path: "/login",
     Component : Signin
   },
   {

@@ -3,6 +3,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../components/Firebase";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "../ThemeContext";
+import React, { useContext } from "react";
 
 const Account = () => {
   const navigate = useNavigate();
@@ -39,9 +41,12 @@ const Account = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#548059]  font-sans">
+    <div className="flex justify-center items-center min-h-screen font-sans"
+    style={{ backgroundColor: theme }}
+    >
       <div className="w-80 p-8 rounded-lg shadow-md flex bg-white text-gray-500 flex-col items-center">
         <h2 className="text-3xl mb-3 font-bold">{userdata.name}</h2>
         <p className="text-lg mb-6 opacity-80">{userdata.email}</p>

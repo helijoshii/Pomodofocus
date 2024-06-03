@@ -4,6 +4,7 @@ import { auth, db } from "../components/Firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import Token from "../Config/Token";
+import { ThemeContext } from "../ThemeContext";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -67,8 +68,15 @@ const Signup = () => {
     }
   };
 
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="flex items-center flex-col min-h-screen bg-[#518a58]">
+    <div className="flex items-center flex-col min-h-screen"
+    style={{ backgroundColor: theme }}
+    >
       <div className="my-7">
         <p className="text-white text-5xl pt-2">Pomodofocus</p>
         <p className="pt-6 text-xl text-[#e2e1e1]">Create Account</p>
@@ -145,7 +153,7 @@ const Signup = () => {
         </button>
         <p className="font-thin text-sm mt-5 text-slate-400">
           Already have an account?{" "}
-          <a href="" className="underline">
+          <a href="" onClick={handleLoginClick} className="underline">
             Log in
           </a>
         </p>

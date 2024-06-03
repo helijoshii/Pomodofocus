@@ -1,12 +1,16 @@
-import React from "react";
+// SettingsDialog.jsx
+import React, { useContext } from "react";
 import { Close, Clock, Sound, Magic, Notification } from "../icons";
 import ClickAwayListener from "react-click-away-listener";
+import { ThemeContext } from "../ThemeContext";
 
 const SettingsDialog = ({ close }) => {
+  const { changeTheme } = useContext(ThemeContext);
+
   return (
     <div>
-      <div className=" h-screen w-screen fixed inset-0 overflow-auto z-50 ">
-        <div className="  flex justify-center">
+      <div className="h-screen w-screen fixed inset-0 overflow-auto z-50">
+        <div className="flex justify-center">
           <ClickAwayListener onClickAway={close}>
             <div className="h-1/2 bg-white w-[400px] my-16 rounded px-5">
               <div className="flex justify-end gap-32 text-[#AAA] font-medium my-4">
@@ -30,7 +34,7 @@ const SettingsDialog = ({ close }) => {
                     <input
                       type="number"
                       placeholder="25"
-                      className="border mt-1 p-2 bg-[#EFEFEF] text-black  rounded w-full"
+                      className="border mt-1 p-2 bg-[#EFEFEF] text-black rounded w-full"
                     />
                   </div>
                   <div>
@@ -46,7 +50,7 @@ const SettingsDialog = ({ close }) => {
                     <input
                       type="number"
                       placeholder="15"
-                      className="border mt-1 p-2 bg-[#EFEFEF] text-black  rounded w-full"
+                      className="border mt-1 p-2 bg-[#EFEFEF] text-black rounded w-full"
                     />
                   </div>
                 </div>
@@ -85,11 +89,26 @@ const SettingsDialog = ({ close }) => {
                   <div className="mt-8 flex justify-between">
                     <p className="text-[#555555]"> Color Themes</p>
                     <div className="flex gap-2">
-                      <div className="w-6 h-6 bg-[#518A58] rounded-lg"></div>
-                      <div className="w-6 h-6 bg-[#7D53A2] rounded-lg"></div>
-                      <div className="w-6 h-6 bg-[#9B8238] rounded-lg"></div>
-                      <div className="w-6 h-6 bg-[#A24A4A] rounded-lg"></div>
-
+                      <div
+                        className="w-6 h-6 bg-[#518A58] rounded-lg cursor-pointer"
+                        onClick={() => changeTheme("green")}
+                      ></div>
+                      <div
+                        className="w-6 h-6 bg-[#7D53A2] rounded-lg cursor-pointer"
+                        onClick={() => changeTheme("purple")}
+                      ></div>
+                      <div
+                        className="w-6 h-6 bg-[#9B8238] rounded-lg cursor-pointer"
+                        onClick={() => changeTheme("yellow")}
+                      ></div>
+                      <div
+                        className="w-6 h-6 bg-[#A24A4A] rounded-lg cursor-pointer"
+                        onClick={() => changeTheme("red")}
+                      ></div>
+                      <div
+                        className="w-6 h-6 bg-[#4A77A2] rounded-lg cursor-pointer"
+                        onClick={() => changeTheme("blue")}
+                      ></div>
                     </div>
                   </div>
                 </div>
