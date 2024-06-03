@@ -6,24 +6,22 @@ const Timer = () => {
   const [expiryTimestamp, setExpiryTimestamp] = useState(new Date());
   expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + initialTime);
 
-  const {
-    seconds,
-    minutes,
-    isRunning,
-    start,
-    pause,
-    resume,
-    restart,
-  } = useTimer({
-    expiryTimestamp,
-    autoStart: false,
-    onExpire: () => console.warn("Timer expired"),
-  });
+  function ding() {
+    var sound = new Audio("./src/components/data/Start.mp3");
+    sound.play();
+  }
+  const { seconds, minutes, isRunning, start, pause, resume, restart } =
+    useTimer({
+      expiryTimestamp,
+      autoStart: false,
+      onExpire: () => console.warn("Timer expired"),
+    });
 
   const [isPaused, setIsPaused] = useState(true);
   const [activeTimer, setActiveTimer] = useState("Pomodoro");
 
   const handleButtonClick = () => {
+    ding();
     if (!isRunning && isPaused) {
       start();
       setIsPaused(false);
