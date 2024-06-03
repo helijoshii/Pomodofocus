@@ -40,18 +40,19 @@ const Signin = () => {
 
   return (
     <div className="flex items-center flex-col min-h-screen bg-[#518a58]">
-        <div className="my-12">
-
-      <p className="text-white text-5xl pt-2">Pomodofocus</p>
-      <p className="pt-6 text-white">login</p>
-        </div>
+      <div className="my-12">
+        <p className="text-white text-5xl pt-2">Pomodofocus</p>
+        <p className="pt-6 text-xl text-[#fcfbfb]">Login</p>
+      </div>
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-md max-w-md w-9/12"
       >
-        
         <div className="mb-4">
-          <label htmlFor="email" className="block text-[#C4C4C4] text-sm text-left uppercase font-light  mb-1">
+          <label
+            htmlFor="email"
+            className="block text-[#777676] text-sm text-left uppercase font-light  mb-1"
+          >
             Email
           </label>
           <input
@@ -61,14 +62,17 @@ const Signin = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-2 border bg-[#EFEFEF] border-gray-300 text-[#555555] rounded-sm placeholder:text-sm placeholder:font-thin focus:outline-none focus:ring-2 focus:ring-[#548059]"
+            className="w-full px-4 py-2 border bg-[#EFEFEF] border-gray-300 text-[#555555] rounded-sm placeholder:text-sm placeholder:font-thin focus:outline-none focus:ring-2 focus:ring-[#548059] placeholder:text-[#C4C4C4]"
           />
           {errors.email && (
             <p className="text-red-500 text-sm mt-1">{errors.email}</p>
           )}
         </div>
         <div className="mb-6">
-          <label htmlFor="password" className="block text-[#C4C4C4] text-sm text-left uppercase font-light  mb-1">
+          <label
+            htmlFor="password"
+            className="block text-[#777676] text-sm text-left uppercase font-light  mb-1"
+          >
             Password
           </label>
           <input
@@ -88,7 +92,13 @@ const Signin = () => {
         >
           Log in
         </button>
-        <p className="font-thin text-xs mt-5 text-slate-400">Don't have an account? <a href="" className="underline"> Create Account</a></p>
+        <p className="font-thin text-sm mt-5 text-slate-400">
+          Don't have an account?{" "}
+          <a href="" className="underline">
+
+            Create Account
+          </a>
+        </p>
       </form>
     </div>
   );

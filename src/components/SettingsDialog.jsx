@@ -45,7 +45,7 @@ const SettingsDialog = ({ close }) => {
                     <p>Long Break</p>
                     <input
                       type="number"
-                      placeholder="25"
+                      placeholder="15"
                       className="border mt-1 p-2 bg-[#EFEFEF] text-black  rounded w-full"
                     />
                   </div>
@@ -85,9 +85,11 @@ const SettingsDialog = ({ close }) => {
                   <div className="mt-8 flex justify-between">
                     <p className="text-[#555555]"> Color Themes</p>
                     <div className="flex gap-2">
-                      <div className="w-7 h-7 bg-[#518A58] rounded-lg"></div>
-                      <div className="w-7 h-7 bg-[#7D53A2] rounded-lg"></div>
-                      <div className="w-7 h-7 bg-[#9B8238] rounded-lg"></div>
+                      <div className="w-6 h-6 bg-[#518A58] rounded-lg"></div>
+                      <div className="w-6 h-6 bg-[#7D53A2] rounded-lg"></div>
+                      <div className="w-6 h-6 bg-[#9B8238] rounded-lg"></div>
+                      <div className="w-6 h-6 bg-[#A24A4A] rounded-lg"></div>
+
                     </div>
                   </div>
                 </div>
@@ -111,7 +113,10 @@ const SettingsDialog = ({ close }) => {
                 </div>
 
                 <div className="mt-8 h-16 flex items-center justify-end -m-5 bg-[#EFEFEF]">
-                  <button className="bg-[#222222] text-white font-sans py-2 px-3 rounded-lg mr-3   w-20 h-9"  onClick={close} >
+                  <button
+                    className="bg-[#222222] text-white font-sans py-2 px-3 rounded-lg mr-3 w-20 h-10"
+                    onClick={close}
+                  >
                     OK
                   </button>
                 </div>
