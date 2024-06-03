@@ -7,7 +7,6 @@ const Profile = (props) => {
       width="18"
       height="18"
       viewBox="0 0 24 24"
-      marginRight="7"
     >
       <path
         fill="currentColor"

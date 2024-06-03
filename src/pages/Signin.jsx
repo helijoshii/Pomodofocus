@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useContext, useState } from "react";
 import { auth } from "../components/Firebase";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "../ThemeContext";
 import Token from "../Config/Token";
 
 const Signin = () => {
@@ -40,9 +41,12 @@ const Signin = () => {
   const handleCreateAccountClick = () => {
     navigate("/signup");
   };
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="flex items-center flex-col min-h-screen bg-[#518a58]">
+    <div className="flex items-center flex-col min-h-screen"
+    style={{ backgroundColor: theme }}
+    >
       <div className="my-12">
         <p className="text-white text-5xl pt-2">Pomodofocus</p>
         <p className="pt-6 text-xl text-[#fcfbfb]">Login</p>
