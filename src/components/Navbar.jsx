@@ -1,11 +1,10 @@
-import React from "react";
 import { Settings, Profile, Report, More } from "../icons";
 import { useState } from "react";
 import SettingsDialog from "./SettingsDialog";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
   return (
     <div>
       <nav>
@@ -26,9 +25,11 @@ const Navbar = () => {
               <Settings className="mt-1 mr-1" /> <span> Settings </span>
             </button>
 
-            <button className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm  rounded flex">
-              <Profile className="mt-1 mr-2" /> <span> Sign in </span>
-            </button>
+            <Link to="/signup" >
+              <button className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm  rounded flex" >
+                <Profile className="mt-1 mr-2" /> <span> Sign in </span>
+              </button>
+            </Link>
             <button className="bg-white bg-opacity-10 text-white px-1 py-2 text-sm rounded">
               <More className="mt-1 " />
             </button>
