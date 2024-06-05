@@ -38,14 +38,16 @@ const Signin = () => {
       setErrors(validationErrors);
     }
   };
-  const handleCreateAccountClick = () => {
+  const handleCreateAccountClick = (e) => {
+    e.preventDefault();
     navigate("/signup");
   };
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="flex items-center flex-col min-h-screen"
-    style={{ backgroundColor: theme }}
+    <div
+      className="flex items-center flex-col min-h-screen"
+      style={{ backgroundColor: theme }}
     >
       <div className="my-12">
         <p className="text-white text-5xl pt-2">Pomodofocus</p>
@@ -102,7 +104,6 @@ const Signin = () => {
         <p className="font-thin text-sm mt-5 text-slate-400">
           Don't have an account?{" "}
           <a href="" onClick={handleCreateAccountClick} className="underline">
-
             Create Account
           </a>
         </p>

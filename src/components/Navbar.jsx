@@ -20,10 +20,10 @@ const Navbar = () => {
             <h1 className="text-white text-xl font-semibold">Pomodofocus</h1>
           </div>
           <div className="flex items-center gap-3">
-            <button className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm rounded flex">
+            {/* <button className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm rounded flex">
               <Report className="mt-1 mr-1 " />
               <span className="hidden sm:inline"> Report </span>
-            </button>
+            </button> */}
             <button
               className="bg-white bg-opacity-10 text-white px-3 py-2 text-sm rounded flex"
               onClick={() => setOpen(true)}

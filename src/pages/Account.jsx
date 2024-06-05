@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-duplicate-props */
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../components/Firebase";
 import { useEffect, useState } from "react";
