@@ -74,8 +74,9 @@ const Signup = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="flex items-center flex-col min-h-screen"
-    style={{ backgroundColor: theme }}
+    <div
+      className="flex items-center flex-col min-h-screen"
+      style={{ backgroundColor: theme }}
     >
       <div className="my-7">
         <p className="text-white text-5xl pt-2">Pomodofocus</p>
@@ -153,9 +154,9 @@ const Signup = () => {
         </button>
         <p className="font-thin text-sm mt-5 text-slate-400">
           Already have an account?{" "}
-          <a href="" onClick={handleLoginClick} className="underline">
+          <p onClick={handleLoginClick} className="underline">
             Log in
-          </a>
+          </p>
         </p>
       </form>
     </div>
