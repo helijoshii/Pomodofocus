@@ -6,7 +6,7 @@ const Timer = () => {
   const initialTime = 1500; // 25 minutes in seconds
   const [expiryTimestamp, setExpiryTimestamp] = useState(new Date());
   expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + initialTime);
-  const { longBreak, shortBrake } = useContext(setTime);
+  const { longBreak, shortBrake ,Pomodoro } = useContext(setTime);
 
   const {
     seconds,
@@ -58,6 +58,11 @@ const Timer = () => {
     setTimer(shortBrake, "Short Break")
   }
 
+  
+  function hanldePomodoro() {
+    setTimer(Pomodoro, "Short Break")
+  }
+
 
   return (
     <div className="flex items-center justify-center overflow-hidden">
@@ -69,7 +74,7 @@ const Timer = () => {
                 ? "bg-[#548059]"
                 : "hover:bg-[#548059]"
                 }`}
-              onClick={() => setTimer(1500, "Pomodoro")} // 25 minutes for Pomodoro
+              onClick={hanldePomodoro} // 25 minutes for Pomodoro
             >
               Pomodoro
             </p>
