@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTimer } from "react-timer-hook";
-import setTime from '../Config/SetTime'
+import setTime from '../Config/SetTime';
 
 const Timer = () => {
   const initialTime = 1500; // 25 minutes in seconds
   const [expiryTimestamp, setExpiryTimestamp] = useState(new Date());
   expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + initialTime);
-  const { longBreak, shortBrake ,Pomodoro } = useContext(setTime);
+  const { longBreak, shortBrake, Pomodoro } = useContext(setTime);
 
   const {
     seconds,
@@ -19,7 +19,10 @@ const Timer = () => {
   } = useTimer({
     expiryTimestamp,
     autoStart: false,
-    onExpire: () => console.warn("Timer expired"),
+    onExpire: () => {
+      console.warn("Timer expired");
+      ding(); // Play sound when the timer expires
+    },
   });
 
   const [isPaused, setIsPaused] = useState(true);
@@ -28,7 +31,7 @@ const Timer = () => {
   useEffect(() => {
     handlelongBreak();
     handleshortBreak();
-  }, [longBreak, shortBrake])
+  }, [longBreak, shortBrake]);
 
   const handleButtonClick = () => {
     if (!isRunning && isPaused) {
@@ -51,47 +54,50 @@ const Timer = () => {
   };
 
   function handlelongBreak() {
-    setTimer(longBreak, "Long Break") // 15 minutes for Long Break
+    setTimer(longBreak, "Long Break"); // 15 minutes for Long Break
   }
 
   function handleshortBreak() {
-    setTimer(shortBrake, "Short Break")
+    setTimer(shortBrake, "Short Break");
+  }
+
+  function hanldePomodoro() {
+    setTimer(Pomodoro, "Pomodoro");
+  }
+
+  function ding() {
+    const audio = new Audio(
+      "https://s5-1.ttsmaker-file.com/file/2024-06-08-211248_189490.mp3"
+    );
+    audio.play();
   }
 
   
-  function hanldePomodoro() {
-    setTimer(Pomodoro, "Short Break")
-  }
-
-
   return (
     <div className="flex items-center justify-center overflow-hidden">
       <div className="bg-white text-white bg-opacity-10 h-80 w-[480px] mt-10 rounded-md">
         <div className="mx-8">
-          <div className="flex flex-row gap-4 mt-5 justify-around text-base font-semibold ">
+          <div className="flex flex-row gap-4 mt-5 justify-around text-base font-semibold">
             <p
-              className={`px-3 py-1 rounded-md cursor-pointer ${activeTimer === "Pomodoro"
-                ? "bg-[#548059]"
-                : "hover:bg-[#548059]"
-                }`}
+              className={`px-3 py-1 rounded-md cursor-pointer ${
+                activeTimer === "Pomodoro" ? "bg-[#548059]" : "hover:bg-[#548059]"
+              }`}
               onClick={hanldePomodoro} // 25 minutes for Pomodoro
             >
               Pomodoro
             </p>
             <p
-              className={`px-3 py-1 rounded-md cursor-pointer ${activeTimer === "Short Break"
-                ? "bg-[#548059]"
-                : "hover:bg-[#548059]"
-                }`}
+              className={`px-3 py-1 rounded-md cursor-pointer ${
+                activeTimer === "Short Break" ? "bg-[#548059]" : "hover:bg-[#548059]"
+              }`}
               onClick={handleshortBreak}
             >
               Short Break
             </p>
             <p
-              className={`px-3 py-1 rounded-md cursor-pointer ${activeTimer === "Long Break"
-                ? "bg-[#548059]"
-                : "hover:bg-[#548059]"
-                }`}
+              className={`px-3 py-1 rounded-md cursor-pointer ${
+                activeTimer === "Long Break" ? "bg-[#548059]" : "hover:bg-[#548059]"
+              }`}
               onClick={handlelongBreak} // 15 minutes for Long Break
             >
               Long Break
@@ -108,7 +114,8 @@ const Timer = () => {
           <div>
             <button
               className="bg-white text-[#518a58] w-48 h-14 text-2xl px-3 py-2 font-semibold rounded-md transition-all duration-200 ease-in-out transform active:scale-95 z-0"
-              onClick={handleButtonClick}>
+              onClick={handleButtonClick}
+            >
               {isRunning && !isPaused ? "Pause" : "Start"}
             </button>
           </div>
