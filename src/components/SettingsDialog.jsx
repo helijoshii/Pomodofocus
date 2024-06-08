@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useContext } from "react";
 import { Close, Clock, Sound, Magic, Notification } from "../icons";
 import ClickAwayListener from "react-click-away-listener";

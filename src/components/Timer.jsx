@@ -1,6 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { useContext, useEffect, useState } from "react";
 import { useTimer } from "react-timer-hook";
 import setTime from '../Config/SetTime';
+import soundFile from '../lib/Sound.mp3'; 
 
 const Timer = () => {
   const initialTime = 1500; // 25 minutes in seconds
@@ -67,37 +69,35 @@ const Timer = () => {
 
   function ding() {
     const audio = new Audio(
-      "https://s5-1.ttsmaker-file.com/file/2024-06-08-211248_189490.mp3"
+      soundFile
     );
     audio.play();
   }
 
-  
+
   return (
     <div className="flex items-center justify-center overflow-hidden">
       <div className="bg-white text-white bg-opacity-10 h-80 w-[480px] mt-10 rounded-md">
         <div className="mx-8">
           <div className="flex flex-row gap-4 mt-5 justify-around text-base font-semibold">
             <p
-              className={`px-3 py-1 rounded-md cursor-pointer ${
-                activeTimer === "Pomodoro" ? "bg-[#548059]" : "hover:bg-[#548059]"
-              }`}
+              className={`px-3 py-1 rounded-md cursor-pointer ${activeTimer === "Pomodoro" ? "bg-[#548059]" : "hover:bg-[#548059]"
+                }`}
               onClick={hanldePomodoro} // 25 minutes for Pomodoro
             >
               Pomodoro
             </p>
+        
             <p
-              className={`px-3 py-1 rounded-md cursor-pointer ${
-                activeTimer === "Short Break" ? "bg-[#548059]" : "hover:bg-[#548059]"
-              }`}
+              className={`px-3 py-1 rounded-md cursor-pointer ${activeTimer === "Short Break" ? "bg-[#548059]" : "hover:bg-[#548059]"
+                }`}
               onClick={handleshortBreak}
             >
               Short Break
             </p>
             <p
-              className={`px-3 py-1 rounded-md cursor-pointer ${
-                activeTimer === "Long Break" ? "bg-[#548059]" : "hover:bg-[#548059]"
-              }`}
+              className={`px-3 py-1 rounded-md cursor-pointer ${activeTimer === "Long Break" ? "bg-[#548059]" : "hover:bg-[#548059]"
+                }`}
               onClick={handlelongBreak} // 15 minutes for Long Break
             >
               Long Break
